@@ -1,0 +1,26 @@
+
+
+	$listagem = Db::Read()->Clear()
+
+	->select([
+		'bp.nome nome',
+		'bp.email email',
+		'bp.celular celular',
+		'bp.idpessoa cod',
+		])
+	->from("si_apresentacao sa")
+	->join("base_usuario bu", "sa.alt_idusuario = bu.alt_idusuario")
+	->join("base_pessoa bp", "bu.alt_idusuario = bp.alt_idusuario")
+    ->whereOR(['idapresentacao' => new we_Where_Equal($params['filtros']['apresentasel'])])
+	->fetchAll();
+
+    return ["rows" => $listagem];
+	$listagem = Db::Read()->Clear()
+		->select(['sa.idapresentacao',
+			'sa.dscinterna',
+				 ])
+		->from("si_apresentacao sa")
+		->fetchAll();
+    
+        return ["rows" => $listagem];
+        ///////////////////////////////////

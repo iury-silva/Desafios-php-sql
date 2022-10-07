@@ -1,0 +1,54 @@
+$consulta = Db::Read()->clear()
+	->select([
+		'nome',
+		'dscpessoa_tipo',
+		'dsctipoproduto',
+		'localizador',
+		'COUNT(idmovimentacaoitem) as quantidade'
+	])
+	->from("base_pessoa bp")
+	->join('pdv_produto_mov_item mvi','mvi.idpessoa = bp.idpessoa')
+	->join('pdv_produto_tipo ppt','ppt.alt_idusuario=mvi.alt_idusuario')
+	->join('base_pessoa_tipo bpt','bpt.alt_idusuario=mvi.alt_idusuario')
+	->groupBy([1,2,3,4])
+	->whereANDNotLike('nome','Consumidor')
+	
+	//////////////////////////////////////////////////////////////////
+
+
+
+  $consulta = Db::Read()->clear()
+	->select([
+		'bp.nome',
+		'bpt.dscpessoa_tipo',
+		'ppt.dsctipoproduto',
+		'ppt.dscproduto',
+		'ppmm.localizador',
+		'COUNT(idmovimentacaoitem) as quantidade'
+	])
+	->from("base_pessoa bp")
+	->join('pdv_produto_mov_item mvi','mvi.idpessoa = bp.idpessoa')
+	->join('pdv_produto_tipo ppt','ppt.alt_idusuario=mvi.alt_idusuario')
+	->join('base_pessoa_tipo bpt','bpt.alt_idusuario=mvi.alt_idusuario')
+	->join('pdv_produto_mov ppmm','ppmm.idmovimentacao=mvi.idmovimentacao')
+	->groupBy([1,2,3,4])
+	->whereANDNotLike('nome','Consumidor')
+	
+	///////////////////////////////////////////////////////////////
+	
+	$consulta = Db::Read()->clear()
+	->select([
+		'bp.nome',
+		'bpt.dscpessoa_tipo',
+		'pp.dscproduto produto',
+		'ppmm.localizador',
+		'COUNT(idmovimentacaoitem) as quantidade'
+	])
+	->from("pdv_produto_mov_item mvi")
+	->join('base_pessoa bp','mvi.idpessoa = bp.idpessoa')
+	->join('pdv_produto pp','pp.idproduto=mvi.idproduto')
+	->join('base_pessoa_tipo bpt','bpt.idpessoa_tipo=bp.idpessoa_tipo')
+	->join('pdv_produto_mov ppmm','ppmm.idmovimentacao=mvi.idmovimentacao')
+	->groupBy([1,2,3,4])
+	->whereNotAND(['nome'=>'Consumidor'])
+	->orderByASC(['bp.nome','pp.dscproduto','bpt.dscpessoa_tipo'])

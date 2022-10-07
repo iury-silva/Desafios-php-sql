@@ -1,0 +1,59 @@
+html {
+  font-family: "Roboto Slab", serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #85ffbd;
+  background-image: linear-gradient(
+    45deg,
+    #85ffbd 0%,
+    #fffb7d 50%,
+    #9f9c9c 100%
+  );
+
+  background-repeat: no-repeat;
+
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.data {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.calendario {
+  float: left;
+  margin-top: 10px;
+  margin-left: 150px;
+}
+.formulario {
+  margin-right: 150px;
+}
+.resultado {
+  font-size: xx-large;
+}
+.calend {
+  float: left;
+  margin-right: 60px;
+}

@@ -1,0 +1,47 @@
+
+QUESTAO 4
+
+$consulta = Db::Read()->clear()
+	->select(['dsctipoproduto','COUNT(dsctipoproduto) dsci','SUM(valor) val'])
+	->from("pdv_produto_mov_item mvi")
+	->join("pdv_produto_tipo pp", "mvi.idtipoproduto = pp.idtipoproduto")
+	->whereAND(["status"=>"PA"])
+	->whereAND(["valor" => new we_Where_Greater(0) ])
+	->groupBy(['dsctipoproduto'])
+	->orderByASC('dsctipoproduto')
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+QUESTAO 4
+
+
+$consulta = Db::Read()->clear()
+	->select(['dscinterna','COUNT(dscinterna) dsci','SUM(valor) val'])
+	->from("pdv_produto prd")
+	->join("pdv_produto_mov_item mvi", "mvi.idproduto = prd.idproduto")
+	->whereAND(["status"=>"PA"])
+	
+	->groupBy(['dscinterna'])
+	->orderByASC('dscinterna')
+	
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+QUESTAO 4
+
+
+	$consulta = Db::Read()->clear()
+	->select(['dscinterna','COUNT(dscinterna) quantidade','SUM(valor) val'])
+	->from("pdv_produto prd")
+	->join("pdv_produto_mov_item mvi", "mvi.idproduto = prd.idproduto")
+	->whereAND(["status"=>"PA"])
+	
+	->groupBy(['dscinterna'])
+	->orderByASC('dscinterna')
+	

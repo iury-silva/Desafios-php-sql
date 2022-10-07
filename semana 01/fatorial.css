@@ -1,0 +1,30 @@
+html {
+  font-family: "Indie Flower", cursive;
+  margin: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  text-align: center;
+  font-size: xx-large;
+}
+.back {
+  width: 220vh;
+  height: 50vh;
+  margin-top: -100px;
+}
+.back2 {
+  width: 220vh;
+  height: 45vh;
+  margin-top: -280px;
+}
+.resultado {
+  font-size: 50px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}

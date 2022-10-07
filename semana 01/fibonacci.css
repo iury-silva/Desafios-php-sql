@@ -1,0 +1,29 @@
+html {
+  font-family: "El Messiri", sans-serif;
+  margin: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html {
+  background-image: url("/images/bob.jpeg");
+  height: 100vh;
+}
+.res {
+  font-size: x-large;
+  font-weight: 700;
+  display: inline-block;
+}
+.img {
+  float: left;
+  margin-left: -500px;
+
+  size: 50px 50px;
+}
